@@ -11,4 +11,4 @@ FastaSplit.pl is a perl script that takes an input file in fasta format and spli
 usage: FastaSplit.pl InputFastaFile NumFile
 author: Jame C. Estill
 
-Map_make.R: R script used to map the population locations on a map
+Map_make.R: R script used to map the population locations on a map.
