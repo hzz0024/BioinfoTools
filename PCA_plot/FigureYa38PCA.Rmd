@@ -1,16 +1,3 @@
----
-title: "FigureYa38 PCA"
-author: "小丫画图出品"
-date: "9/16/2018"
-output: html_document
----
-微信ID: epigenomics  E-mail: epigenomics@rainbow-genome.com
-
-本代码作者：徐洲更<https://www.jianshu.com/u/9ea40b5f607a>
-
-![](http://oex750gzt.bkt.clouddn.com/18-9-3/64881053.jpg)
-
-小丫编辑校验
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
