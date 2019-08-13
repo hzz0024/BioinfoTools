@@ -25,7 +25,7 @@ USAGE
 [fasta_split.pl](fasta_split.pl) [perl] : takes an input file in fasta format and splits it into a number of fasta files.Useful for creating the FASTA files that useful for creating the FASTA files that.
 ```
 USAGE
-  $ FastaSplit.pl InputFastaFile NumFile
+  $ perl fasta_split.pl InputFastaFile NumFile
 ```
 
 
