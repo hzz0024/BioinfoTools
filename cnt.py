@@ -1,8 +1,17 @@
 import numpy as np
 import re
+import argparse
+
+
+arg_parser = argparse.ArgumentParser()
+arg_parser.add_argument(
+        '--input',
+        default='./Flowcell1_1_fastq',
+        help='Input file.')
+args = arg_parser.parse_args()
 
 # replace the fileName with your own fastq file name
-fileName = './Flowcell1_1_fastq'
+fileName = args.input
 fileInput = open(fileName, mode='r')
 #chars = set('!"#$%&'()*+,-./')
 chars = set('\'"!#$%&()*+/,-.012')
