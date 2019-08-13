@@ -12,3 +12,5 @@ usage: FastaSplit.pl InputFastaFile NumFile
 author: Jame C. Estill
 
 Map_make.R: R script used to map the population locations on a map.
+
+easyparallel_plot.R: R script used to make scatter plot for parallel time
