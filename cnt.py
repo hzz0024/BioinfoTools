@@ -1,6 +1,7 @@
 import numpy as np
 import re
 
+# replace the fileName with your own fastq file name
 fileName = './Flowcell1_1_fastq'
 fileInput = open(fileName, mode='r')
 #chars = set('!"#$%&'()*+,-./')
