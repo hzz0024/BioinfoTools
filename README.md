@@ -16,11 +16,10 @@ USAGE
 ```
 
 
-[cnt.py](cnt.py) [python] helps track down the number of sequence started with "EEEE" (or something else"). 
+[cnt.py](cnt.py) [python] : track down the number of sequence started with "EEEE" (or something else"). 
 ```
 USAGE
   $ python cnt.py --input [FILE]
-  
 ```
 
 [fasta_split.pl](fasta_split.pl) [perl] : takes an input file in fasta format and splits it into a number of fasta files.Useful for creating the FASTA files that useful for creating the FASTA files that.
