@@ -1,0 +1,71 @@
+install.packages("ggplot2")
+install.packages("Rcpp")
+install.packages("plyr")
+install.packages("stringi")
+install.packages("maptools")
+install.packages("sp")
+install.packages("Cairo")
+install.packages("RColorBrewer")
+install.packages("ggmap")
+install.packages("sf")
+install.packages("mapview")
+library(plyr)
+library(ggplot2)
+library(sp)
+library(maptools)
+library(Cairo)
+library(RColorBrewer)
+library(ggmap)
+library(sf)
+library(mapview)
+
+
+lat <- c(31,33)
+long <- c(-88.0, -86.0)
+bbox <- make_bbox(long,lat,f=0.05)
+b <- get_map(bbox,maptype="toner-lite", source = 'stamen')
+ggmap(b)
+
+shapes <- c(43,15,16,17,18,43)
+df <- read.csv("location.csv")
+head(df)
+ggmap(b) + theme(axis.text=element_text(size = 30, face = "bold"), axis.title = element_text(size = 30, face = "bold")) + geom_point(data = df, aes(lon,lat,color=factor(Operator)),shape=shapes,size=10) + labs(x = "Longitude", y = "Latitude", color = "") + scale_shape_manual(values = shapes) + scale_color_manual(values = c("red","dodgerblue","dodgerblue","dodgerblue","dodgerblue","red"))
+
+
+lat <- c(27,36)
+long <- c(-100.0, -85.0)
+bbox <- make_bbox(long,lat,f=0.05)
+b <- get_map(bbox,maptype="toner-lite", source = 'stamen')
+ggmap(b)
+
+shapes <- c(43,15,16,17,18,43)
+df <- read.csv("location.csv")
+head(df)
+ggmap(b) + theme(axis.text=element_text(size = 30, face = "bold"), axis.title = element_text(size = 30, face = "bold")) + geom_point(data = df, aes(lon,lat,color=factor(Operator)),size=10) + labs(x = "Longitude", y = "Latitude", color = "")  + scale_color_manual(values = c("red","dodgerblue","dodgerblue","dodgerblue","dodgerblue","red")) + theme(legend.position="none")
+
+shapes <- c(43,15,16,17,18,43)
+df <- read.csv("location.csv")
+head(df)
+ggmap(b) + theme(axis.text=element_text(size = 20, face = "bold"), axis.title = element_text(size = 20, face = "bold")) + geom_point(data = df, aes(lon,lat,color=factor(Operator)),size=7) + labs(x = "Longitude", y = "Latitude", color = "")  + scale_color_manual(values = c("purple","blue","orange","red","lightgreen","yellow")) + theme(legend.position="none")
+
+##SBF
+lat <- c(31,33)
+long <- c(-88.0, -86.0)
+bbox <- make_bbox(long,lat,f=0.05)
+b <- get_map(bbox,maptype="toner", source = 'stamen')
+ggmap(b)
+
+df <- read.csv("location.csv")
+head(df)
+ggmap(b) + theme(axis.text=element_text(size = 15, face = "bold"), axis.title = element_text(size = 15, face = "bold")) + geom_point(data = df, aes(lon,lat,color=factor(Operator)), size = 3.5) + labs(x = "Longitude", y = "Latitude", color = "") + theme(legend.position="right") 
+
+##PAD
+lat <- c(31,33)
+long <- c(-88.05, -86.0)
+bbox <- make_bbox(long,lat,f=0.05)
+b <- get_map(bbox,maptype="toner", source = 'stamen')
+ggmap(b)
+
+df <- read.csv("PAD_location.csv")
+head(df)
+ggmap(b) + theme(axis.text=element_text(size = 15, face = "bold"), axis.title = element_text(size = 15, face = "bold")) + geom_point(data = df, aes(lon,lat,color=factor(Operator)), size = 3.5) + labs(x = "Longitude", y = "Latitude", color = "") + theme(legend.position="right") 
