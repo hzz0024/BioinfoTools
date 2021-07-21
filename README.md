@@ -183,7 +183,7 @@ Submit this job with: `sbatch simple_example.sh`
     number
     -   ex: `Submitted batch job 1844784`
 
-You can view the status of your jobs with: `squeue -u netid`
+You can view the status of your jobs with: `squeue -u netid` or `squeue`
 
 -   This should look something like: ![](job_status.png)
 
