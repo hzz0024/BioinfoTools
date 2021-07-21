@@ -86,8 +86,7 @@
 
 Various options can be specified to control the various aspects of computing on a Slurm cluster. There are two ways to do this:
 
-**1. By appending the options after `sbatch` on command (recommand)
-line.**
+**1. By appending the options after `sbatch` on command line (recommand).**
 
 For example,
 
