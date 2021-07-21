@@ -219,7 +219,7 @@ Kill your job with: `scancel jobnumber`
 
 # BioinfoTools
 
-The part includes bioinformatics tools for data analyses and visualization.
+This part includes bioinformatics tools for data analyses and visualization.
 
 ## Table Of Content
 
