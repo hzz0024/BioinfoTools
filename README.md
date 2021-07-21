@@ -36,7 +36,7 @@
 
 ## Cluster structure
 
-![](https://www.hpc.iastate.edu/sites/default/files/uploads/HPCHowTo/HPCCluster.JPG)
+![](https://github.com/hzz0024/BioinfoTools/blob/master/example/Slide1.jpeg)
 
 <br>
 
