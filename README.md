@@ -125,13 +125,6 @@ When the script is ready, you can save it as `submit.sh`, for example, and submi
 -   `squeue -u abc123` : show jobs belonging to user abc123
 -   `scancel 1564` : cancel job with jobID 1564. All processes
     associated with the job will be killed
--   `slurm_stat.pl cbsubscb`: summarize current usage of nodes,
-    partitions, and slots, and number of jobs per user (run on one of
-    the login nodes)
--   `get_slurm_usage.pl`: generate information about average duration,
-    CPU, and memory usage of your recent jobs (run the command without
-    arguments to see usage) - this may help assess real memory needs of
-    your jobs and show whether all requested CPUs are actually used.
 
 ## A simple example of job submission using `sbatch`
 
