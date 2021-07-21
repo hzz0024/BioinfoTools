@@ -2,31 +2,26 @@
 
 ## Table of Content
 
-  -   [Resources](#resources)
-  -   [Cluster structure](#cluster-structure)
+-   [Resources](#resources)
+-   [Cluster structure](#cluster-structure)
     -   [Login nodes](#login-nodes)
     -   [Computing nodes](#computing-nodes)
         -   [General Info](#general-info)
-        -   [Local storage on computing
-            nodes](#local-storage-on-computing-nodes)
-        -   [Scratch storage on computing
-            nodes](#scratch-storage-on-computing-nodes)
+        -   [Local storage on computing nodes](#local-storage-on-computing-nodes)
+        -   [Scratch storage on computing nodes](#scratch-storage-on-computing-nodes)
     -   [Storage servers](#storage-servers)
     -   [Home directory](#home-directory)
-  -   [Cluster partitions](#cluster-partitions)
-  -   [Computing](#computing)
+-   [Cluster partitions](#cluster-partitions)
+-   [Computing](#computing)
     -   [General rules](#general-rules)
     -   [Slurm submission options](#slurm-submission-options)
     -   [Job monitoring](#job-monitoring)
-  -   [A simple example of job submission using
-    `sbatch`](#a-simple-example-of-job-submission-using-sbatch)
-  -   [Job arrays](#job-arrays)
+-   [A simple example of job submission using `sbatch`](#a-simple-example-of-job-submission-using-sbatch)
+-   [Job arrays](#job-arrays)
     -   [Example - running SLiM jobs on the
         cluster](#example---running-slim-jobs-on-the-cluster)
-  -   [Accessing files from `cbsunt246` within a script or interactive
-    session on the
-    cluster](#accessing-files-from-cbsunt246-within-a-script-or-interactive-session-on-the-cluster)
-  -   [Q & A with Robert Bukowski](#q--a-with-robert-bukowski)
+-   [Accessing files from `cbsunt246` within a script or interactive session on the cluster](#accessing-files-from-cbsunt246-within-a-script-or-interactive-session-on-the-cluster)
+-   [Q & A with Robert Bukowski](#q--a-with-robert-bukowski)
 
 
 ## Resources
