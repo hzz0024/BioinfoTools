@@ -49,12 +49,12 @@
 
 -   `cbsuhare` is owned by Hare lab but managed by the BioHPC team. The server is a part of BioHPC Cloud and share all the software available in BioHPC. It equips with 48 cores, 256 GB RAM, and 144 TB disk space (theoretically but some system files may eat up the space).
 -   The server can be accessed directly though `ssh`
--   You can either run jobs directly on the server or use a job scheduler (SLURM).
+-   You can run small tasks (e.g. cp, mv, or organize the files) directly on the server. For jobs require a lot of computation resources, please use the job scheduler SLURM.
 -   Unlike the login nodes, accessing the `cbsuhare` server requires Cornell network connect (i.e. VPN if you are off campus).
 
 ###### Local storage on server
 
--   `cbsuhare` server has a local permanent storage, with a capcity of 144 TB.
+-   `cbsuhare` server has a local permanent storage, with a original capcity of 144 TB.
 -   The local storage is located at the directory `/local/storage`. 
 -   Create your storage folder with netID (e.g. hz269) 
 -   The local storage can be mounted to any other node using the command (not done yet)
@@ -116,14 +116,12 @@ When the script is ready, you can save it as `submit.sh`, for example, and submi
 #### Job monitoring
 
 -   `sinfo` : report the overall state of the cluster and queues
--   `scontrol show nodes` : report detailed information about the
-    cluster nodes, including current usage
--   `scontrol show partitions` : report detailed information about the
-    queues (partitions)
+-   `scontrol show nodes` : report detailed information about the cluster nodes, including current usage
+-   `scontrol show partitions` : report detailed information about the queues (partitions)
 -   `squeue` : show jobs running and waiting in queues
 -   `squeue -u abc123` : show jobs belonging to user abc123
--   `scancel 1564` : cancel job with jobID 1564. All processes
-    associated with the job will be killed
+-   `scancel 1564` : cancel job with jobID 1564. All processes associated with the job will be killed
+-   `htop`: shows a frequently updated list of the processes running on the server
 
 ## A simple example of job submission using `sbatch`
 
