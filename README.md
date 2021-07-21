@@ -4,8 +4,8 @@ The repository is a library of bioinformatics tools for data analyses and visual
 
 ## Table Of Content
 
-  - [Data Analysis](#Data Analysis)
-  - [Plotting](#Plotting)
+  - [Data Analysis](#data-analysis)
+  - [Plotting](#plotting)
 
 ## Data Analysis
 
