@@ -63,6 +63,10 @@
 -   The mounted storage then becomes available under the directory `/fs/node_name/storage/`  
 -   After mounting step your input files can be accessed from any of the computing nodes (not done yet).
 
+![](https://github.com/hzz0024/BioinfoTools/blob/master/example/storage.jpeg)
+
+<br>
+
 ###### Computing space on server
 
 -   They are located under `/workdir/`.  
