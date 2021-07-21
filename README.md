@@ -31,17 +31,13 @@
 
 ## Resources
 
--   [BSCB cluster
-    guide](https://biohpc.cornell.edu/lab/cbsubscb_SLURM.htm)
--   [Slurm introduction by Princeton Research
-    Computing](https://researchcomputing.princeton.edu/slurm)
--   [Introduction to slurm in the Bioinformatics
-    Workbook](https://bioinformaticsworkbook.org/Appendix/Unix/01_slurm-basics.html#gsc.tab=0)
+-   [Therkildsen lab user-guide](https://github.com/therkildsen-lab/user-guide/blob/master/slurm_tutorial/slurm.md). Note content in this post is mostly from this resource site.
+-   [BSCB cluster guide](https://biohpc.cornell.edu/lab/cbsubscb_SLURM.htm)
+-   [Slurm introduction by Princeton Research Computing](https://researchcomputing.princeton.edu/slurm)
+-   [Introduction to slurm in the Bioinformatics Workbook](https://bioinformaticsworkbook.org/Appendix/Unix/01_slurm-basics.html#gsc.tab=0)
 -   [Slurm overview](https://slurm.schedmd.com/overview.html)
--   [Slurm commands reference
-    sheet](https://slurm.schedmd.com/pdfs/summary.pdf)
--   [Recordings of past BioHPC
-    workshops](https://biohpc.cornell.edu/login_bio.aspx?ReturnURL=/lab/medialist.aspx)
+-   [Slurm commands reference sheet](https://slurm.schedmd.com/pdfs/summary.pdf)
+-   [Recordings of past BioHPC workshops](https://biohpc.cornell.edu/login_bio.aspx?ReturnURL=/lab/medialist.aspx)
 
 
 
