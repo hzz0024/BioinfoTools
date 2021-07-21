@@ -71,7 +71,7 @@
 
 -   They are located under `/workdir/`.  
 -   It is recommended to copy your input files from storage space to this scratch storage for computing.  
--   The scratch storage is shared by all users, but unlike reversed node (CBSU hourly paid servers), it is not necessary to copy back the output files to storage space. 
+-   The scratch storage is shared by all users, but unlike reversed node (CBSU hourly paid servers), it is not required to immediately copy back the output files to storage space. You could do that after all analyses done.
 
 ## Computing
 
