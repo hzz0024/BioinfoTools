@@ -70,63 +70,32 @@
 
 ###### Computing space on server
 
--   Each computing node has a scratch storage, ranging from 1-2TB in
-    capacity.  
 -   They are located under `/workdir/`.  
--   It is recommended to copy your input files from network mounted
-    storage space to this scratch storage for computing, espcially for
-    I/O heavy jobs.  
--   The scratch storage is shared by all users, but unlike reversed node (CBSU hourly payed servers), it is not necessary to copy back the output files to storage space. 
+-   It is recommended to copy your input files from storage space to this scratch storage for computing.  
+-   The scratch storage is shared by all users, but unlike reversed node (CBSU hourly paid servers), it is not necessary to copy back the output files to storage space. 
 
 ## Computing
 
 #### General rules
 
--   Don’t do any computing directly on the login nodes or computing
-    nodes (if you do, you’ll get angry emails).
-    -   Instead, either write everything in a script that you submit
-        using `sbatch`, or request an interactive session using
-        `salloc`.
--   It is also not recommended to do computing directly (i.e. read or
-    write) with files that are network-mounted (i.e. `/fs/`, `/bscb/`,
-    `/home/`), especially for jobs that are heavy in I/O.
-    -   Instead, start by creating a temporary directory under
-        `/workdir/` or `/SSD/` (if present).
-    -   Then, copy all the files you will need from the network mounted
-        storage space into the temporary directory.
-    -   Perform computation with files in the temporary directory.
-    -   Copy all desired output from the temporary directory back to
-        your network mounted storage space.
-    -   Delete the temporary directory at the end.
-    -   Below is an example of this workflow.
-
-``` bash
-# Create and move to a working directory for job
-WORKDIR=/workdir/$USER/$SLURM_JOB_ID-$SLURM_ARRAY_TASK_ID
-mkdir -p $WORKDIR
-cd $WORKDIR
-
-# Copy files to working directory
-BASE_DIR=/home/ikk23
-cp $BASE_DIR/slim_files/merged_same_site_spatial.slim .
-cp $BASE_DIR/python_scripts/new_driver.py .
-
-# Run program
-python new_driver.py > ${SLURM_ARRAY_TASK_ID}.part
-
-# Copy files back to home directory
-cp ${SLURM_ARRAY_TASK_ID}.part $BASE_DIR/zpg_output
-
-# Clean up working directory
-rm -r $WORKDIR
-```
+-   Be aware of CPU, RAM, disk, and timing needs of your jobs. Please do not run heavy tasks directly on the server.
+    -   Instead, write everything in a script that you submit using `sbatch` (i.e. Slurm scheduler).
+-   Determining optimal values for job submission comes with experience, and it is usually best to submit test jobs to get an estimate for the number of processors, usage of memory, and wall time.
 
 #### Slurm submission options
 
-Various options can be specified to control the various aspects of
-computing on a Slurm cluster. There are two ways to do this:
+Various options can be specified to control the various aspects of computing on a Slurm cluster. There are two ways to do this:
 
-**1. Through `#SBATCH` headers at the beginning of the shell script.**
+**1. By appending the options after `sbatch` on command (recommand)
+line.**
+
+For example,
+
+``` bash
+sbatch --job-name=somename --nodes=1 --ntasks=6 --mem=4000 submit.sh
+```
+
+**2. Through `#SBATCH` headers at the beginning of the shell script.**
 
 The following example contains the most useful headers. You will need to
 delete the text within parentheses if you want to use this as a
@@ -138,46 +107,13 @@ template.
 #SBATCH --ntasks=8               (number of tasks; by default, 1 task=1 slot=1 thread)
 #SBATCH --mem=8000               (request 8 GB of memory for this job; default is 1GB per job; here: 8)
 #SBATCH --time=1-20:00:00        (wall-time limit for job; here: 1 day and 20 hours)
-#SBATCH --partition=long7,long30  (request partition(s) a job can run in; here: long7 and lon30 partition)
-#SBATCH --account=bscb09         (project to charge the job to; you should be a member of at least one of 6 projects: ak735_0001,bscb01,bscb02,bscb03,bscb09,bscb10)
-#SBATCH --chdir=/home/bukowski/slurm   (start job in specified directory; default is the directory in which sbatch was invoked)
 #SBATCH --job-name=jobname             (change name of job)
 #SBATCH --output=jobname.out.%j  (write stdout+stderr to this file; %j willbe replaced by job ID)
 #SBATCH --mail-user=email@address.com          (set your email address)
 #SBATCH --mail-type=ALL          (send email at job start, end or crash - do not use if this is going to generate thousands of e-mails!)
 ```
 
-When the script is ready, you can save it as `submit.sh`, for example,
-and submit it with `sbatch submit.sh`.
-
-Note that this option is only applicable for `sbatch`, but not `salloc`.
-
-**2. By appending the options after `sbatch` or `salloc` on command
-line.**
-
-For example,
-
-``` bash
-sbatch --job-name=somename --nodes=1 --ntasks=6 --mem=4000 submit.sh
-```
-
-or
-
-``` bash
-salloc --nodes=1 --ntasks=6 --mem=4000
-```
-
-This option works for both `sbatch` and `salloc`. Also, note that the
-command line options will override the `#SBATCH` headers, so it might be
-a good practice to use the headers as default settings and tweak them
-with command line when needed.
-
-Some other slurm options not specified in above exmaples include:
-
--   `--nodelist`: computing nodes that you want your jobs to run on.
-    E.g.`--nodelist=cbsubscb12`
--   `--exclude`: computing nodes that you **don’t** want your jobs to
-    run on. E.g. `--exclude=cbsubscb10,cbsubscbgpu01`
+When the script is ready, you can save it as `submit.sh`, for example, and submit it with `sbatch submit.sh`.
 
 #### Job monitoring
 
