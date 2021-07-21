@@ -135,7 +135,6 @@ cat simple_example.sh
 
     ## #!/bin/bash -l
     ## #SBATCH --time=10:00
-    ## #SBATCH --partition=short
     ## #SBATCH --job-name=simple_job
     ## #SBATCH --output=simple_job.out
     ## 
@@ -165,8 +164,6 @@ cat simple_example.sh
 Job headers:
 
 -   `#SBATCH --time=10:00` : set a time limit of 10 minutes
--   `#SBATCH --partition=short` : use the **short** queue, since this
-    job will take less than 4 hours
 -   `#SBATCH --job-name=simple_job` : this is the name that will appear
     in `squeue`
 -   `#SBATCH --output=simple_job.out` : direct error messsages to this
@@ -175,9 +172,7 @@ Job headers:
 
 Submit this job with: `sbatch simple_example.sh`
 
--   You can include job headers here instead. For example, I could have
-    omitted the headers above and instead done
-    `sbatch simple_example.sh -t 10:00 -p short -J simple_job -o simple_job.out`
+-   You can include job headers here instead. For example, I could have omitted the headers above and instead done `sbatch simple_example.sh -t 10:00 -p short -J simple_job -o simple_job.out` (recommend)
 -   Once you submit your job, you’ll get a message that includes the job
     number
     -   ex: `Submitted batch job 1844784`
