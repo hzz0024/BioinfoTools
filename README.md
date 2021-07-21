@@ -31,7 +31,7 @@
 
 ## Resources
 
--   [Therkildsen lab user-guide](https://github.com/therkildsen-lab/user-guide/blob/master/slurm_tutorial/slurm.md). Note content in this post is mostly from this resource site.
+-   [Therkildsen lab user-guide](https://github.com/therkildsen-lab/user-guide/blob/master/slurm_tutorial/slurm.md). Note some content in this post is sourced from here.    
 -   [BSCB cluster guide](https://biohpc.cornell.edu/lab/cbsubscb_SLURM.htm)
 -   [Slurm introduction by Princeton Research Computing](https://researchcomputing.princeton.edu/slurm)
 -   [Introduction to slurm in the Bioinformatics Workbook](https://bioinformaticsworkbook.org/Appendix/Unix/01_slurm-basics.html#gsc.tab=0)
