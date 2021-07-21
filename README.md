@@ -48,7 +48,7 @@
 ###### General Info
 
 -   `cbsuhare` is owned by Hare lab but managed by the BioHPC team. The server is a part of BioHPC Cloud and share all the software available in BioHPC. It equips with 48 cores, 256 GB RAM, and 144 TB disk space (theoretically but some system files may eat up the space).
--   The server can be accessed directly though `ssh`
+-   The server can be accessed directly through `ssh`
 -   You can run small tasks (e.g. cp, mv, or organize the files) directly on the server. For jobs require a lot of computation resources, please use the job scheduler SLURM.
 -   Unlike the login nodes, accessing the `cbsuhare` server requires Cornell network connect (i.e. VPN if you are off campus).
 
