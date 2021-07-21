@@ -7,11 +7,8 @@
     -   [Login nodes](#login-nodes)
     -   [Computing nodes](#computing-nodes)
         -   [General Info](#general-info)
-        -   [Local storage on computing nodes](#local-storage-on-computing-nodes)
-        -   [Scratch storage on computing nodes](#scratch-storage-on-computing-nodes)
-    -   [Storage servers](#storage-servers)
-    -   [Home directory](#home-directory)
--   [Cluster partitions](#cluster-partitions)
+        -   [Local storage on server](#local-storage-on-server)
+        -   [Computing space on server](#computing-space)
 -   [Computing](#computing)
     -   [General rules](#general-rules)
     -   [Slurm submission options](#slurm-submission-options)
@@ -55,100 +52,31 @@
 
 ###### General Info
 
--   Currently, there are a total of 18 computing nodes, which are named
-    `cbsubscb01`-`cbsubscb17`, and `cbsubscbgpu01`.
--   Their specs range from 32-64 in physical cores, and 256-1003GB in
-    RAM.
--   You can access these computing nodes from the login node, by
-    submitting a job using `sbatch` OR by requesting an interactive
-    session using `salloc`
--   Each node can also be accessed directly though `ssh`
--   You can’t run computationally intensive jobs in these sessions.
-    -   This is only for tasks such as job submission, interactive
-        session request, file lookup, and monitoring.
--   Unlike the login nodes, accessing the computing nodes directly will
-    require Cornell network connect (i.e. VPN if you are off campus).
+-   `cbsuhare` is owned by Hare lab but managed by the BioHPC team. The server is a part of BioHPC Cloud and share all the software available in BioHPC. It equips with 48 cores, 256 GB RAM, and 144 TB disk space (theoretically but some system files may eat up the space).
+-   The server can be accessed directly though `ssh`
+-   You can either run jobs directly on the server or use a job scheduler (SLURM).
+-   Unlike the login nodes, accessing the `cbsuhare` server requires Cornell network connect (i.e. VPN if you are off campus).
 
-###### Local storage on computing nodes
+###### Local storage on server
 
--   Each computing node has a local permanent storage and each is
-    assigned to a different lab group.  
--   The computing node assigned to the Therkildsen lab for permanent
-    storage is `cbsubscb16`.  
--   The local storage of each node is located at the directory
-    `/local/storage`.  
--   The local storage of each node can be mounted to any other node
-    using the command
+-   `cbsuhare` server has a local permanent storage, with a capcity of 144 TB.
+-   The local storage is located at the directory `/local/storage`. 
+-   Create your storage folder with netID (e.g. hz269) 
+-   The local storage can be mounted to any other node using the command (not done yet)
     `/programs/bin/labutils/mount_server node_name /storage`.
     -   e.g. `/programs/bin/labutils/mount_server cbsubscb16 /storage`  
--   The mounted storage then becomes available under the directory
-    `/fs/node_name/storage/`  
--   This mounting step is usually one of the first things we do in a job
-    script so that your input files can be accessed from any of the
-    computing nodes.
+-   The mounted storage then becomes available under the directory `/fs/node_name/storage/`  
+-   After mounting step your input files can be accessed from any of the computing nodes (not done yet).
 
-###### Scratch storage on computing nodes
+###### Computing space on server
 
 -   Each computing node has a scratch storage, ranging from 1-2TB in
     capacity.  
--   They are located under `/workdir/` (and `/SSD/` on some nodes).  
+-   They are located under `/workdir/`.  
 -   It is recommended to copy your input files from network mounted
     storage space to this scratch storage for computing, espcially for
     I/O heavy jobs.  
--   The scratch storage is shared by all users, so after you finish your
-    job, make sure to copy your output files to your permanent storage
-    space, and clear the scrach storage space.
--   Any files that were not removed by users will be removed
-    automatically when the node receives a new job.
--   Users who have jobs running on the nodes will **not** have their
-    associated files removed from the scratch space.
-
-#### Storage servers
-
--   There are three storage servers, which together have a capcity of
-    281TB.
--   They should not be accessed directly.
--   Instead, they are network mounted in all BSCB machines under
-    `/bscb/`, in which each lab group has a subfolder.
--   They are not mounted to the `nt246` server yet.
-
-#### Home directory
-
--   You will always have the same home directory. It is mounted on all
-    CBSU servers.
--   It has limited storage space and should not be used for computing or
-    storage.
-
-## Cluster partitions
-
-| Partition | Job Time Limit | Nodes                            | Slots                    |
-|-----------|----------------|----------------------------------|--------------------------|
-| short     | 4 hours        | cbsubscb\[01-15\], cbsubscbgpu01 | 1392                     |
-| regular   | 24 hours       | cbsubscb\[01-15\], cbsubscbgpu01 | 435                      |
-| long7     | 7 days         | cbsubscb\[01-15\]                | 437                      |
-| long30    | 30 days        | cbsubscb\[01-15\]                | 500 (limit 270 per user) |
-| gpu       | 3 days         | cbsubscbgpu01                    | 32 + 2 GPUs              |
-
--   Any jobs submitted from the login node will get to a queue.
--   The cluster has five different queues (or partitions), and each has
-    a different time limit (see the table above).
--   The partition to which a job is submitted can be specified by the
-    `--partition` or `-p` option, with default being the `short`
-    partition.
--   Note that there are a total of 1392 slots (i.e. number of tasks that
-    can be requested). So all slots are available for jobs submitted to
-    the `short` partition, and only a subset of them are available for
-    other partitions.
--   Please use the following table to determine which partition(s) to
-    submit your jobs to:
-
-| Intended job duration | Partition specification             | Slots available |
-|-----------------------|-------------------------------------|-----------------|
-| up to 4 hours         | `--partition=short`                 | 1392            |
-| 4 - 24 hours          | `--partition=regular,long7,long30`  | 1372            |
-| 24 hours - 7 days     | `--partition=long7,long30`          | 937             |
-| 7 days - 30 days      | `--partition=long30`                | 500             |
-| GPU, up to 36 hours   | `--partiton=gpu --gres=gpu:tP100:1` | 32              |
+-   The scratch storage is shared by all users, but unlike reversed node (CBSU hourly payed servers), it is not necessary to copy back the output files to storage space. 
 
 ## Computing
 
