@@ -9,7 +9,7 @@ The repository is a library of bioinformatics tools for data analyses and visual
 
 ## Data Analysis
 
-[getseq.pl](getseq.pl) [perl] : extract the target sequence based on a list of IDs. 
+[getseq.pl](https://github.com/hzz0024/BioinfoTools/blob/master/Perl_script/getseq.pl) [perl] : extract the target sequence based on a list of IDs. 
 ```
 USAGE
   $ perl getseq.pl [list of IDs] [seq.fasta] [output.fasta]
