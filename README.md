@@ -1,6 +1,56 @@
+# CBSU server and Slurm usage
+
+## Table of Content
+
+  -   [Resources](#resources)
+  -   [Cluster structure](#cluster-structure)
+    -   [Login nodes](#login-nodes)
+    -   [Computing nodes](#computing-nodes)
+        -   [General Info](#general-info)
+        -   [Local storage on computing
+            nodes](#local-storage-on-computing-nodes)
+        -   [Scratch storage on computing
+            nodes](#scratch-storage-on-computing-nodes)
+    -   [Storage servers](#storage-servers)
+    -   [Home directory](#home-directory)
+  -   [Cluster partitions](#cluster-partitions)
+  -   [Computing](#computing)
+    -   [General rules](#general-rules)
+    -   [Slurm submission options](#slurm-submission-options)
+    -   [Job monitoring](#job-monitoring)
+  -   [A simple example of job submission using
+    `sbatch`](#a-simple-example-of-job-submission-using-sbatch)
+  -   [Job arrays](#job-arrays)
+    -   [Example - running SLiM jobs on the
+        cluster](#example---running-slim-jobs-on-the-cluster)
+  -   [Accessing files from `cbsunt246` within a script or interactive
+    session on the
+    cluster](#accessing-files-from-cbsunt246-within-a-script-or-interactive-session-on-the-cluster)
+  -   [Q & A with Robert Bukowski](#q--a-with-robert-bukowski)
+
+
+## Resources
+
+-   [BSCB cluster
+    guide](https://biohpc.cornell.edu/lab/cbsubscb_SLURM.htm)
+-   [Slurm introduction by Princeton Research
+    Computing](https://researchcomputing.princeton.edu/slurm)
+-   [Introduction to slurm in the Bioinformatics
+    Workbook](https://bioinformaticsworkbook.org/Appendix/Unix/01_slurm-basics.html#gsc.tab=0)
+-   [Slurm overview](https://slurm.schedmd.com/overview.html)
+-   [Slurm commands reference
+    sheet](https://slurm.schedmd.com/pdfs/summary.pdf)
+-   [Recordings of past BioHPC
+    workshops](https://biohpc.cornell.edu/login_bio.aspx?ReturnURL=/lab/medialist.aspx)
+
+
+
+
+---
+
 # BioinfoTools
 
-The repository is a library of bioinformatics tools for data analyses and visualization.
+The part includes bioinformatics tools for data analyses and visualization.
 
 ## Table Of Content
 
