@@ -35,14 +35,13 @@
 
 #### Login nodes
 
--   There are three login nodes: `cbsulogin`, `cbsulogin2`, and
-    `cbsulogin3`.
--   They are used for submitting jobs or requesting interactive
-    sessions.
--   Use `ssh` to connect to login nodes (Cornell VPN is not necessary).
-    -   They all have the domain name `cbsulogin.biohpc.cornell.edu`.
-    -   E.g. `ssh netid@cbsulogin.biohpc.cornell.edu`
--   Don’t use them for computation.
+-   Use `ssh` to connect to login nodes (Cornell VPN is needed).
+    -   It has have the domain name `cbsuhare.biohpc.cornell.edu`.
+    -   E.g. `ssh netid@cbsuhare.biohpc.cornell.edu`
+
+![](https://github.com/hzz0024/BioinfoTools/blob/master/example/login.jpeg)
+
+<br>
 
 #### Computing nodes
 
