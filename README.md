@@ -57,11 +57,11 @@
 -   `cbsuhare` server has a local permanent storage, with a original capcity of 144 TB.
 -   The local storage is located at the directory `/local/storage`. 
 -   Create your storage folder with netID (e.g. hz269) 
--   The local storage can be mounted to any other node using the command (not done yet)
+-   The local storage can be mounted to any other node using the command
     `/programs/bin/labutils/mount_server node_name /storage`.
-    -   e.g. `/programs/bin/labutils/mount_server cbsubscb16 /storage`  
--   The mounted storage then becomes available under the directory `/fs/node_name/storage/`  
--   After mounting step your input files can be accessed from any of the computing nodes (not done yet).
+    -   e.g. `/programs/bin/labutils/mount_server cbsuhare /storage`  
+-   The mounted storage then becomes available under the directory `/fs/cbsuhare/storage/`  
+-   After mounting step your input files can be accessed from any of the computing nodes.
 
 ![](https://github.com/hzz0024/BioinfoTools/blob/master/example/storage.jpeg)
 
