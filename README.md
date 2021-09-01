@@ -62,7 +62,10 @@
     -   e.g. `/programs/bin/labutils/mount_server cbsuhare /storage`  
 -   The mounted storage then becomes available under the directory `/fs/cbsuhare/storage/`  
 -   After mounting step your input files can be accessed from any of the computing nodes.
-
+-   IMPORTANT NOTE: the mounting will not automatically gone after reservation. One may need to unmount the directory using `unmoutn_server` command
+```bash
+/programs/bin/labutils/unmount_server cbsuhare /storage
+```
 ![](https://github.com/hzz0024/BioinfoTools/blob/master/example/storage.jpeg)
 
 <br>
