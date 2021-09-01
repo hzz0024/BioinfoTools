@@ -80,6 +80,11 @@
 -   Be aware of CPU, RAM, disk, and timing needs of your jobs. Please do not run heavy tasks directly on the server.
     -   Instead, write everything in a script that you submit using `sbatch` (i.e. Slurm scheduler).
 -   Determining optimal values for job submission comes with experience, and it is usually best to submit test jobs to get an estimate for the number of processors, usage of memory, and wall time.
+-   When you want to check the resource that occupied by other jobs, please type the command below. It will show the threads and memory for a specific job. 
+
+```bash
+scontrol show job jobid
+```
 
 #### Slurm submission options
 
