@@ -57,12 +57,15 @@
 -   `cbsuhare` server has a local permanent storage, with a original capcity of 144 TB.
 -   The local storage is located at the directory `/local/storage`. 
 -   Create your storage folder with netID (e.g. hz269) 
--   The local storage can be mounted to any other node using the command (not done yet)
+-   The local storage can be mounted to any other node using the command
     `/programs/bin/labutils/mount_server node_name /storage`.
-    -   e.g. `/programs/bin/labutils/mount_server cbsubscb16 /storage`  
--   The mounted storage then becomes available under the directory `/fs/node_name/storage/`  
--   After mounting step your input files can be accessed from any of the computing nodes (not done yet).
-
+    -   e.g. `/programs/bin/labutils/mount_server cbsuhare /storage`  
+-   The mounted storage then becomes available under the directory `/fs/cbsuhare/storage/`  
+-   After mounting step your input files can be accessed from any of the computing nodes.
+-   IMPORTANT NOTE: the mounting will not automatically gone after reservation. One may need to unmount the directory using `unmoutn_server` command
+```bash
+/programs/bin/labutils/unmount_server cbsuhare /storage
+```
 ![](https://github.com/hzz0024/BioinfoTools/blob/master/example/storage.jpeg)
 
 <br>
@@ -80,6 +83,11 @@
 -   Be aware of CPU, RAM, disk, and timing needs of your jobs. Please do not run heavy tasks directly on the server.
     -   Instead, write everything in a script that you submit using `sbatch` (i.e. Slurm scheduler).
 -   Determining optimal values for job submission comes with experience, and it is usually best to submit test jobs to get an estimate for the number of processors, usage of memory, and wall time.
+-   When you want to check the resource that occupied by other jobs, please type the command below. It will show the threads and memory for a specific job. 
+
+```bash
+scontrol show job jobid
+```
 
 #### Slurm submission options
 
