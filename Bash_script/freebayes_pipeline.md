@@ -1,14 +1,14 @@
-# This pipeline is used to call SNPs using freebayes. The original code is from the dDocent. Three steps in this pipeline; first is to split the bed file into N parts.
+### This pipeline is used to call SNPs using freebayes. The original code is from the dDocent. Three steps in this pipeline; first is to split the bed file into N parts.
 
-# Step 1. Split the bed file into N parts (e.g., N = 60 below)
+### Step 1. Split the bed file into N parts (e.g., N = 60 below)
 
-```
+```bash
 split -n l/60 --additional-suffix=.bed -d mapped.bed mapped.
 ```
 
-# Step 2. Create bam file using each split bed coordinates
+### Step 2. Create bam file using each split bed coordinates
 
-```
+```bash
 #!/bin/bash
 for i in {00..59}; do
 	samtools view -@$15 -b -1 -L mapped.$i.bed -o split.$i.bam filter.merged.bam
@@ -16,17 +16,17 @@ for i in {00..59}; do
 done
 ```
 
-# Step 3. Index the bam file
+### Step 3. Index the bam file
 
-```
+```bash
 for i in {00..59}; do
     samtools index 'split.'$i'.bam'
 done
 ```
 
-# Step 4. Calling SNPs using freebayes
+### Step 4. Calling SNPs using freebayes
 
-```
+```bash
 #!/bin/bash
 start=`date +%s` # this part allows to report the time that used for each freebayes running
 /programs/freebayes-v1.3.1/freebayes -b split.00.bam -t mapped.00.bed -v raw.00.vcf -f reference.fasta -m 5 -q 5 -E 3 --min-repeat-entropy 1 -n 10
@@ -41,9 +41,9 @@ echo "Runtime: $hours:$minutes:$seconds (hh:mm:ss)"
 
 Note: you can use the command below to write the 60 bash script in few seconds,
 
-# write up the freebayes scripts, create a folder named "00_freebayes_script" before running the command below.
+### write up the freebayes scripts, create a folder named "00_freebayes_script" before running the command below.
 
-```
+```bash
 #!/bin/bash
 for i in {00..59}
 do
@@ -51,9 +51,9 @@ do
 done
 ```
 
-# write up the Slurm job submission command for each freebayes script
+### write up the Slurm job submission command for each freebayes script
 
-```
+```bash
 #!/bin/bash
 for i in {00..59}
 do
