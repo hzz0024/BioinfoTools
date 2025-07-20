@@ -247,6 +247,12 @@ USAGE
   $ perl fasta_split.pl InputFastaFile NumFile
 ```
 
+[find_flip_snps.R](https://github.com/hzz0024/BioinfoTools/blob/master/R_script/find_flip_snps.R) [R] : compare two VCF files and list markers that need strand flipping.
+```
+USAGE
+  $ Rscript find_flip_snps.R reference.vcf target.vcf output.flip
+```
+
 ## Plotting
 
 [Map_make.R](https://github.com/hzz0024/BioinfoTools/blob/master/R_script/Map_make.R) : map the population locations on a map.
